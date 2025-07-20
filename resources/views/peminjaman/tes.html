@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Manual Barcode Input</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         padding: 20px;
+         text-align: center;
+      }
+
+      input {
+         padding: 10px;
+         font-size: 20px;
+         width: 300px;
+         text-align: center;
+      }
+
+      #output {
+         margin-top: 20px;
+         font-size: 18px;
+         color: green;
+      }
+   </style>
+</head>
+
+<body>
+
+   <h2>Barcode Scanner Input (Manual)</h2>
+   <p>Tempatkan kursor di bawah, lalu scan barcode</p>
+
+   <input type="text" id="barcode" placeholder="Scan barcode di sini..." autofocus>
+   <div id="output"></div>
+
+   <script>
+      const barcodeInput = document.getElementById('barcode');
+      const output = document.getElementById('output');
+
+      barcodeInput.addEventListener('keypress', function (e) {
+         // Jika Enter ditekan
+         if (e.key === 'Enter') {
+            output.innerText = `✅ Barcode: ${barcodeInput.value}`;
+            barcodeInput.value = ''; // Kosongkan untuk input berikutnya
+         }
+      });
+   </script>
+
+</body>
+
+</html>
